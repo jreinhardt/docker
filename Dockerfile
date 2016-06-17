@@ -1,7 +1,16 @@
-FROM hypriot/rpi-java:1.8.0
+FROM resin/rpi-raspbian:jessie
 
-RUN apt-get update && apt-get install -y git curl zip ca-certificates cmake build-essential && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y \
+    openjdk-7-jre \
+    git curl zip ca-certificates \
+    cmake build-essential \
+    docker.io \
+    --no-install-recommends && \
+    rm -rf /var/lib/apt/lists/*
 
+WORKDIR /data
+
+ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-armhf
 ENV JENKINS_HOME /var/jenkins_home
 ENV JENKINS_SLAVE_AGENT_PORT 50000
 
