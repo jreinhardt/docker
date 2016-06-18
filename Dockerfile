@@ -4,7 +4,6 @@ RUN apt-get update && apt-get install -y \
     openjdk-7-jre \
     git curl zip ca-certificates \
     cmake build-essential \
-    docker.io \
     --no-install-recommends && \
     rm -rf /var/lib/apt/lists/*
 
